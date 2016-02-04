@@ -4,6 +4,33 @@
 
 # Home page
 GET     /                           controllers.Application.index
+POST    /token                      controllers.Application.postToken
+GET     /group                      controllers.Application.getGroup
+GET     /group/:id                  controllers.Application.getGroupDetail(id: Int)
+POST    /group/create               controllers.Application.postGroupCreate
+POST    /gorup/:id/message          controllers.Application.postGroupMessage(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# * `get "/contacts"`
+# 	* コンタクト一覧の取得
+# * `get "/groups"`
+# 	* グループ一覧の取得
+# * `get "/groups/:id"`
+# 	* 特定グループの詳細を取得
+# * `post "/groups"`
+# 	* グループの作成
+# 	* formでグループ名、メンバーの一覧を送信
+# * `post "/group/<group_id>/message"`
+# 	* グループに向けてメッセージを送信
+# 	* formでメッセージ内容を送信
+# * `post "/room/create`
+# 	* roomを作る
+# 	* formでグループIDを送信
+# * `post "/room/add"`
+# 	* roomにグループを追加
+# 	* formでグループIDを送信
+# * `post "/room/remove"`
+# 	* roomからグループを削除
+# 	* formでグループIDを送信

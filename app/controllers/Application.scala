@@ -1,18 +1,23 @@
 package controllers
 
+import javax.inject._
+
 import play.api.Play
-import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
+import play.api.db.slick.DatabaseConfigProvider
 import play.api.mvc._
+import play.db.NamedDatabase
 import slick.driver.JdbcProfile
+import play.api.Play.current
 
 import models._
 
-class Application extends Controller with HasDatabaseConfig[JdbcProfile] {
-  val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
+class Application @Inject()(dbConfigProvider: DatabaseConfigProvider) extends Controller {
+  val dbConfig = DatabaseConfigProvider.get[JdbcProfile]
+  import dbConfig._
   import driver.api._
 
   val tokens = TableQuery[Tokens]
-  val groups = TableQuery[Groups]
+  val factions = TableQuery[Factions]
   val member = TableQuery[Members]
 
   def index = Action {

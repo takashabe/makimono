@@ -2,11 +2,11 @@ package models
 
 import slick.driver.MySQLDriver.api._
 
-case class Group(id: Int, name: String)
-class Groups(tag: Tag) extends Table[Group](tag, "GROUP") {
+case class Faction(id: Int, name: String)
+class Factions(tag: Tag) extends Table[Faction](tag, "FACTION") {
 
   def id   = column[Int]("ID", O.PrimaryKey, O.AutoInc)
   def name = column[String]("NAME")
 
-  def * = (id, name) <> (Group.tupled, Group.unapply)
+  def * = (id, name) <> (Faction.tupled, Faction.unapply)
 }

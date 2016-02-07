@@ -8,7 +8,7 @@ POST    /token                      controllers.Application.postToken
 GET     /group                      controllers.Application.getGroup
 GET     /group/:id                  controllers.Application.getGroupDetail(id: Int)
 POST    /group/create               controllers.Application.postGroupCreate
-POST    /gorup/:id/message          controllers.Application.postGroupMessage(id: Int)
+POST    /group/:id/message          controllers.Application.postGroupMessage(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

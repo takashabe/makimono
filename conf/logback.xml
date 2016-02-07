@@ -24,9 +24,9 @@
     </rollingPolicy>
   </appender>
 
-  <root level="ERROR">
+  <root level="DEBUG">
     <!--<appender-ref ref="STDOUT" />-->
-    <appender-ref ref="FILE" />
+    <!--<appender-ref ref="FILE" />-->
   </root>
 
   <logger name="play" level="INFO">
@@ -36,6 +36,9 @@
   <logger name="application" level="DEBUG">
     <appender-ref ref="STDOUT" />
     <appender-ref ref="FILE" />
+  </logger>
+  <logger name="slick.jdbc" level="DEBUG">
+    <appender-ref ref="STDOUT" />
   </logger>
 
 </configuration>

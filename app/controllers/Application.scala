@@ -127,7 +127,6 @@ class Application @Inject()(dbConfigProvider: DatabaseConfigProvider) extends Co
           val feature = WS.url("https://api.chatwork.com/v1/rooms/%s/messages".format(room_id))
             .withHeaders("X-ChatWorkToken" -> token)
             .post(Map("body" -> Seq("最高の開発合宿")))
-          Logger.debug("room_id=%s".format(room_id))
         }
     }
 
